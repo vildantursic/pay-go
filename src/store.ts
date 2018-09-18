@@ -5,11 +5,18 @@ import { find } from 'lodash';
 
 Vue.use(Vuex);
 
+interface State {
+  restaurants: any[];
+  menuItems: any[];
+}
+
+const initState: State = {
+  restaurants: [],
+  menuItems: [],
+};
+
 export default new Vuex.Store({
-  state: {
-    restaurants: [],
-    menuItems: [],
-  },
+  state: initState,
   mutations: {
     GET_RESTAURANTS_SUCCESS(state, payload) {
       state.restaurants = state.restaurants.concat(payload);
